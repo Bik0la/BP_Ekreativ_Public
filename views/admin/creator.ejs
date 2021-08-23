@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Administrátorský panel</title>
+    <meta name="description" content="Generátor kurzů">
+    <meta name="author" content="Nikola Benešová">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+
+<body id="HTMLbody">
+<section id="banner" data-video="img/banner.png">
+    <div class="inner">
+        <header>
+            <h1>Správa kurzů</h1>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+    <a class="backToIndexButton" href="/"> Zpět</a> <br>
+
+<br>
+    <div class="inner">
+        <%- include('../components/flash') %>
+        <% if (!!user) { %>
+            <p>Autor: <%= user.firstName %> <%= user.lastName %></p>
+        <% } %>
+        <selection class="generatorContainer">
+            <div class="tableOfContent">
+                Seznam všech kurzů
+
+                <ul>
+                    <% for(let i = 0; i < courses.length; i++) { %>
+                        <li><%= courses[i].title %>
+                            <form method="post" action="<%= `/admin/creator/course/${courses[i]._id}/delete` %>"><button type="submit" class="creatorButton">Vymazat</button> <a class="creatorButton" href="<%= `/admin/creator/course/${courses[i]._id}/edit` %>">Editovat</a></form>
+
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <div class="courseText">
+                <% if (isEditing) { %>
+                    <%- include('../components/forms/adminCreatorEditForm') %>
+                <% } else { %>
+                    <%- include('../components/forms/adminCreatorForm') %>
+                <% } %>
+            </div>
+        </selection>
+    </div>
+</div>
+
+<!-- Footer -->
+<%- include('../components/footer') %>
+
+</body>
+</html>

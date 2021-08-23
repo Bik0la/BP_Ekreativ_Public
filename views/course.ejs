@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Kurz: <%= course.title %></title>
+    <meta name="description" content="Kurz: <%= course.title %>">
+    <meta name="author" content="Nikola Benešová">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+
+<body id="HTMLbody">
+<section id="banner" data-video="img/banner.png">
+    <div class="inner">
+        <header>
+            <h1><%= course.title %></h1>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+    <a class="backToIndexButton" href="/"> Zpět</a> <br>
+    <div class="inner">
+        <h2> <%- course.title %> </h2>
+
+        <br>
+
+
+        <%- course.mainText %>
+
+    </div>
+
+</div>
+
+<!-- Footer -->
+<%- include('./components/footer') %>
+
+</body>
+</html>

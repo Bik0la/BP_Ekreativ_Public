@@ -1,0 +1,9 @@
+<p style="display: none"><%= i %></p>
+<div class="box">
+    <a class="image fit" href="course/<%= courses[i]._id %>"><img src="<%= courses[i].thumbnailUrl %>"></a>
+    <div class="inner innerBox">
+        <h3><%= courses[i].title %></h3>
+        <h4>Kategorie: <%= courses[i].categoryName %></h4>
+        <a href="/course/<%= courses[i]._id %>" class="button fit">Přejdi na kurz</a>
+    </div>
+</div>

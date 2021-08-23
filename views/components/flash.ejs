@@ -1,0 +1,5 @@
+<% if(messages !== undefined){ %>
+    <% for(let i = 0; i < messages.length; i++) { %>
+        <p <%= messages[i].type === 'error' ? "style=\"color: red\"" : '' %>><%= messages[i].message %></p>
+    <% } %>
+<% } %>

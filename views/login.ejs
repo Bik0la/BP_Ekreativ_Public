@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Login</title>
+    <meta name="description" content="Generátor kurzů">
+    <meta name="author" content="Nikola Benešová">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+</head>
+
+<body id="HTMLbody">
+<section id="banner" data-video="img/banner.png">
+    <div class="inner">
+        <header>
+            <h1>Přihlašování se</h1>
+        </header>
+    </div>
+</section>
+
+<!-- Main -->
+<div id="main">
+    <a class="backToIndexButton" href="/"> Zpět</a> <br>
+    <div class="inner">
+        <% if ( !!login?.message) { %>
+            <p><%= login.message %></p>
+        <% } %>
+
+        <% if ( !!register?.message) { %>
+            <p><%= register.message %></p>
+        <% } %>
+
+        <selection class="generatorContainer">
+            <div class="leftLogin">
+                <form action="/login" method="post">
+                    <input type="text" name="username" id="" placeholder="uživatelské jméno">
+                    <input type="password" name="password" id="" placeholder="heslo">
+                    <input type="submit" value="Přihlásit se">
+                </form>
+            </div>
+
+
+            <div class="rightLogin">
+
+                <form action="/register" method="post">
+                    <input type="text" name="firstName" id="" placeholder="Křestní jméno">
+                    <input type="text" name="lastName" id="" placeholder="Příjmení jméno">
+                    <input type="text" name="username" id="" placeholder="uživatelské jméno">
+                    <input type="password" name="password" id="" placeholder="heslo">
+                    <input type="submit" value="Registrovat se">
+                </form>
+            </div>
+        </selection>
+
+    </div>
+</div>
+
+<!-- Footer -->
+<%- include('./components/footer') %>
+
+</body>
+</html>

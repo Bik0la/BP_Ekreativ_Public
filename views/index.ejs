@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Hlavní stránka e-kreativ</title>
+    <meta name="description" content="e-kreativ">
+    <meta name="author" content="Nikola Benešová">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+
+<body id="HTMLbody">
+<section id="banner" data-video="img/banner.png">
+    <div class="inner">
+        <header>
+            <img src="/images/logo1.png" alt="logo e-kreativ">
+            <!-- <h1>e-kreativ</h1> -->
+            <p>Kreativita bez limitů je k nezaplacení</p>
+        </header>
+        <a data-scroll href="#main" class="more">Pokračujte dále</a>
+    </div>
+</section>
+
+<% let value = locals.value %>
+<!-- Main -->
+<div id="main">
+    <div class="inner" id="inner">
+        <%- include('./components/flash') %>
+
+        <h1>Všechny dostupné kurzy</h1>
+
+
+        <div class="filter">
+            <input id="button" type="submit" name="0" value="Vše"/>
+            <input id="button2" type="submit" name="Kresba" value="Kresba"/>
+            <input id="button3" type="submit" name="Malba" value="Malba"/>
+            <input id="button4" type="submit" name="Animace" value="Animace"/>
+            <input id="button5" type="submit" name="Fotografování" value="Fotografování"/>
+            <input id="button6" type="submit" name="1" value="Ostatní"/>
+
+        </div>
+
+
+        <div class="thumbnails">
+
+            <!-- Boxes -->
+            <div id="vsechno" class="wrapper-filter" style="display: flex">
+                <% for(let i = 0; i < courses.length; i++) { %>
+                    <%- include('./components/courseThumbnail', {i: i}) %>
+                <% } %>
+            </div>
+            <div class="wrapper-filter" id="kresba" style="display: none">
+                <% for(let i = 0; i < courses.length; i++) { %>
+                    <% if (courses[i].categoryName == "Kresba" ) { %>
+                        <%- include('./components/courseThumbnail', {i: i}) %>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="wrapper-filter" id="malba" style="display: none">
+                <% for(let i = 0; i < courses.length; i++) { %>
+                    <% if (courses[i].categoryName == "Malba" ) { %>
+                        <%- include('./components/courseThumbnail', {i: i}) %>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="wrapper-filter" id="animace" style="display: none">
+                <% for(let i = 0; i < courses.length; i++) { %>
+                    <% if (courses[i].categoryName == "Animace" ) { %>
+                        <%- include('./components/courseThumbnail', {i: i}) %>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="wrapper-filter" id="foto" style="display: none">
+                <% for(let i = 0; i < courses.length; i++) { %>
+                    <% if (courses[i].categoryName == "Fotografování" ) { %>
+                        <%- include('./components/courseThumbnail', {i: i}) %>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="wrapper-filter" id="others" style="display: none">
+                <% for(let i = 0; i < courses.length; i++) { %>
+                    <% if (courses[i].categoryName == "Ostatní" ) { %>
+                        <%- include('./components/courseThumbnail', {i: i}) %>
+                    <% } %>
+                <% } %>
+            </div>
+            <% if(!!user){ %>
+                <a href="/admin/creator" class="button fit">Prohlížet své kurzy a generovat nové</a>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<%- include('./components/footer') %>
+
+<script>
+    document.getElementById('button').onclick = function () {
+        document.querySelector('#vsechno').style.display = "flex";
+        document.querySelector('#kresba').style.display = "none";
+        document.querySelector('#malba').style.display = "none";
+        document.querySelector('#animace').style.display = "none";
+        document.querySelector('#foto').style.display = "none";
+        document.querySelector('#others').style.display = "none";
+
+    }
+    document.getElementById('button2').onclick = function () {
+        document.querySelector('#vsechno').style.display = "none";
+        document.querySelector('#kresba').style.display = "flex";
+        document.querySelector('#malba').style.display = "none";
+        document.querySelector('#animace').style.display = "none";
+        document.querySelector('#foto').style.display = "none";
+        document.querySelector('#others').style.display = "none";
+    }
+    document.getElementById('button3').onclick = function () {
+        document.querySelector('#vsechno').style.display = "none";
+        document.querySelector('#kresba').style.display = "none";
+        document.querySelector('#malba').style.display = "flex";
+        document.querySelector('#animace').style.display = "none";
+        document.querySelector('#foto').style.display = "none";
+        document.querySelector('#others').style.display = "none";
+
+    }
+    document.getElementById('button4').onclick = function () {
+        document.querySelector('#vsechno').style.display = "none";
+        document.querySelector('#kresba').style.display = "none";
+        document.querySelector('#malba').style.display = "none";
+        document.querySelector('#animace').style.display = "flex";
+        document.querySelector('#foto').style.display = "none";
+        document.querySelector('#others').style.display = "none";
+    }
+    document.getElementById('button5').onclick = function () {
+        document.querySelector('#vsechno').style.display = "none";
+        document.querySelector('#kresba').style.display = "none";
+        document.querySelector('#malba').style.display = "none";
+        document.querySelector('#animace').style.display = "none";
+        document.querySelector('#foto').style.display = "flex";
+        document.querySelector('#others').style.display = "none";
+    }
+    document.getElementById('button6').onclick = function () {
+        document.querySelector('#vsechno').style.display = "none";
+        document.querySelector('#kresba').style.display = "none";
+        document.querySelector('#malba').style.display = "none";
+        document.querySelector('#animace').style.display = "none";
+        document.querySelector('#foto').style.display = "none";
+        document.querySelector('#others').style.display = "flex";
+    }
+
+</script>
+</body>
+</html>
