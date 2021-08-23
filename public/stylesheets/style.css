@@ -380,6 +380,14 @@ header h6 + p {
     flex-wrap: wrap;
 }
 
+@media screen and (min-width: 1281px) {
+
+
+    .thumbnails .box {
+        margin: 0 1em 2em 1em;
+        width: 30% !important;
+    }
+}
 
 @media screen and (max-width: 1280px) {
 
@@ -1130,15 +1138,6 @@ button.style3:active,
 }
 
 @media screen and (max-width: 480px) {
-
-    /*input[type="submit"],*/
-    /*input[type="reset"],*/
-    /*input[type="button"],*/
-    /*button,*/
-    /*.button {*/
-    /*    padding: 0;*/
-    /*}*/
-
     .thumbnails .box {
         width: 100% !important;
     }
@@ -1373,6 +1372,8 @@ button.style3:active,
     #banner video {
         display: none;
     }
+
+
 
 }
 
