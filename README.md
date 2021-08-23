@@ -26,8 +26,12 @@ Kde `root` je uživatelské jméno, `example` je heslo, `127.0.0.1` je host bě�
 
 Pro zapnutí projektu je potřeba udělat s již nainstalovanými nástroji následující: 
  
-Otevřít terminál a navigovat se do root adresáře s projektem a v tomto terminálu spustit příkazy:
+Otevřít terminál (ve Windows příkazový řádek) a navigovat se do root adresáře s projektem a v tomto terminálu spustit příkazy:
 
 * `yarn install` (stáhne všechny dependencies pro tento projekt)
 * `yarn start` (spustí nodejs aplikaci)
+
+Pokud nemáte globálně nainstalovaný yarn, můžete jej přidat do projektu příkazem:
+
+* `npm install yarn` (NPM nainstaluje yarn pro tento projekt) a smažte pak package-lock.json
 
