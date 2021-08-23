@@ -35,3 +35,6 @@ Pokud nemáte globálně nainstalovaný yarn, můžete jej přidat do projektu p
 
 * `npm install yarn` (NPM nainstaluje yarn pro tento projekt) a smažte pak package-lock.json
 
+### Práce s aplikací:
+
+Pokud máte zájem o administrátorská práva, konaktujte mě na benesni1@uhk.cz
