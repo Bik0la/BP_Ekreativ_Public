@@ -108,7 +108,10 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
     border-spacing: 10px;
     border-width: 1px;
     flex: 1;
-    border-radius: 25px;
+    max-height: 600px;
+    overflow-y: auto;
+    max-width: 50%;
+    min-width: 400px;
 
 }
 
@@ -120,6 +123,8 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after {
     flex: 2;
     border: 1px solid black;
     border-radius: 25px;
+    max-width: 800px;
+    min-width: 400px;
 
 }
 
@@ -375,23 +380,20 @@ header h6 + p {
     flex-wrap: wrap;
 }
 
-.thumbnails .box {
-    margin: 0 1em 2em 1em;
-    width: 30% !important;
-}
 
 @media screen and (max-width: 1280px) {
 
-    .thumbnails .box {
-        width: 45%;
-    }
 
+    .thumbnails .box {
+        margin: 0 1em 2em 1em;
+        width: 30% !important;
+    }
 }
 
 @media screen and (max-width: 736px) {
 
     .thumbnails .box {
-        width: 100%;
+        width: 100% !important;
     }
 
 }
@@ -1129,13 +1131,18 @@ button.style3:active,
 
 @media screen and (max-width: 480px) {
 
-    input[type="submit"],
-    input[type="reset"],
-    input[type="button"],
-    button,
-    .button {
-        padding: 0;
+    /*input[type="submit"],*/
+    /*input[type="reset"],*/
+    /*input[type="button"],*/
+    /*button,*/
+    /*.button {*/
+    /*    padding: 0;*/
+    /*}*/
+
+    .thumbnails .box {
+        width: 100% !important;
     }
+
 
 }
 
